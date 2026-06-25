@@ -1,553 +1,565 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;800;900&display=swap" rel="stylesheet"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestellen — Turkish Sandwich 2.0</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <title>TURKWICH MENU</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Syne:wght@700;800&display=swap)" rel="stylesheet">
 
+    <style>
+        /* --- VARIABLES --- */
         :root {
-            --red:       #c0392b;
-            --red-deep:  #8b1a10;
-            --red-glow:  rgba(192, 57, 43, 0.35);
-            --gold:      #d4a855;
-            --ink:       #0e0b09;
-            --surface:   #161210;
-            --card:      #1e1813;
-            --card-hover:#251e17;
-            --border:    rgba(212, 168, 85, 0.18);
-            --border-sub:rgba(255,255,255,0.06);
-            --text:      #f0e6d8;
-            --muted:     #8a7a6a;
+            --turk-red: #E30A17;
+            --turk-white: #FFFFFF;
+            --tea-gold: #D4AF37; 
+            --bg-color: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #6c757d;
+            --card-bg: #ffffff;
         }
 
-        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: var(--ink);
-            color: var(--text);
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            padding-bottom: 100px;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.04;
-            pointer-events: none;
-            z-index: 9999;
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
         }
 
-        /* ── HEADER ── */
+        /* --- HEADER (STICKY) --- */
         header {
-            background-color: var(--ink);
-            border-bottom: 1px solid var(--border);
-            padding: 16px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .mc-logo { display: flex; flex-direction: column; line-height: 1; }
-        .mc-logo-main { display: flex; align-items: center; gap: 0; }
-
-        .mc-bracket {
-            font-size: 3.2rem;
-            font-weight: 900;
-            color: var(--gold);
-            line-height: 1;
-            font-family: 'Space Mono', monospace;
-            margin: 0 -0.5rem;
-            filter: drop-shadow(0 0 8px rgba(212, 168, 85, 0.4));
-        }
-
-        .mc-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 3.2rem;
-            overflow: visible;
-        }
-
-        .mc-big {
-            font-size: 2.4rem;
-            font-weight: 900;
-            color: #fff;
-            line-height: 1;
-            font-family: 'Syne', sans-serif;
-            margin: auto 0;
-        }
-
-        .mc-bottom {
-            font-family: 'Syne', sans-serif;
-            font-weight: 900;
-            font-size: 1rem;
-            color: #fff;
-            line-height: 0.1;
-            align-self: center;
-            margin-bottom: 0.1rem;
-        }
-
-        .mc-tagline {
-            font-size: 0.38rem;
-            letter-spacing: 0.25em;
-            color: #fff;
-            display: block;
-            font-weight: 500;
-            font-family: 'Syne', sans-serif;
-            margin-top: 0.4rem;
-            text-align: center;
-        }
-
-        .mc-tagline .accent { color: var(--gold); text-shadow: 0 0 8px rgba(212, 168, 85, 0.8); }
-
-        /* ── NAV ── */
-        nav {
-            background-color: rgba(14, 11, 9, 0.88);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
-            padding: 0 40px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--turk-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 16px;
+            background: var(--turk-red);
+            border-radius: 2px;
+            position: relative;
+        }
+        .flag-icon::after {
+            content: '☪';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            color: white;
+            font-size: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
         }
 
         nav a {
-            color: var(--muted);
-            padding: 16px 18px;
+            color: var(--text-dark);
+            font-weight: 700;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            font-size: 0.9rem;
             transition: color 0.2s;
-            position: relative;
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 18px; right: 18px;
-            height: 2px;
-            background: var(--gold);
-            transform: scaleX(0);
-            transition: transform 0.25s ease;
+        nav a:hover, nav a.active {
+            color: var(--turk-red);
         }
 
-        nav a:hover { color: var(--text); }
-        nav a:hover::after, nav a.active::after { transform: scaleX(1); }
-        nav a.active { color: var(--gold); }
-
-        /* ── PAGE HERO ── */
-        .page-hero {
-            padding: 64px 40px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 60% 80% at 10% 50%, rgba(192,57,43,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .page-hero-inner {
-            max-width: 1400px;
-            margin: 0 auto;
+        .lang-switch {
             display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 24px;
-            flex-wrap: wrap;
+            gap: 2px;
+            background: #eee;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 0.7rem;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--turk-red);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* --- HERO SECTION --- */
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('[images.unsplash.com](https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2000&auto=format&fit=crop)');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            width: 100%;
         }
 
         .page-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(48px, 9vw, 100px);
-            line-height: 0.9;
-            letter-spacing: 0.03em;
-            color: white;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px var(--turk-red);
         }
 
-        .page-title em { font-style: normal; color: var(--red); }
-        .page-count { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 16px; color: var(--muted); padding-bottom: 8px; }
-
-        /* ── CONTROLS BAR ── */
-        .controls-bar {
-            max-width: 1400px;
-            margin: 0 auto 32px;
-            padding: 0 40px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        /* SEARCH */
-        .search-wrap {
-            position: relative;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .search-wrap input {
-            width: 100%;
-            background: var(--card);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 10px 16px 10px 40px;
-            border-radius: 6px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .search-wrap input:focus { border-color: var(--gold); }
-        .search-wrap input::placeholder { color: var(--muted); }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* SORT */
-        .sort-select {
-            background: var(--card);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 10px 16px;
-            border-radius: 6px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            outline: none;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        .sort-select:focus { border-color: var(--gold); }
-
-        /* RANDOM */
-        .btn-random {
-            background: transparent;
-            border: 1px solid rgba(212,168,85,0.35);
-            color: var(--gold);
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
             font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.2s, border-color 0.2s, color 0.2s;
-            white-space: nowrap;
         }
 
-        .btn-random:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+        /* --- SEARCH & FILTERS --- */
+        .controls-container {
+            max-width: 1200px;
+            margin: -20px auto 20px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
 
-        /* ── CATEGORIES ── */
-        .categories-bar {
-            max-width: 1400px;
-            margin: 0 auto 32px;
-            padding: 0 40px;
+        .search-bar {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
         }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .categories-scroll {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 5px 0 15px;
+            scrollbar-width: none;
+        }
+        .categories-scroll::-webkit-scrollbar { display: none; }
 
         .cat-btn {
-            background: var(--card);
-            border: 1px solid var(--border-sub);
-            color: var(--muted);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            background: white;
+            border: 1px solid #ddd;
+            color: var(--text-dark);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
             cursor: pointer;
+            white-space: nowrap;
             transition: all 0.2s;
         }
 
-        .cat-btn:hover { border-color: var(--gold); color: var(--text); }
-
+        .cat-btn:hover { border-color: var(--turk-red); color: var(--turk-red); }
         .cat-btn.active {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--ink);
-            font-weight: 700;
+            background: var(--turk-red);
+            color: white;
+            border-color: var(--turk-red);
         }
 
-        /* ── RESULT COUNT ── */
-        .result-count {
-            max-width: 1400px;
-            margin: 0 auto 16px;
-            padding: 0 40px;
-            font-size: 12px;
-            color: var(--muted);
-            letter-spacing: 0.08em;
-        }
-
-        /* ── GRID (MASONRY-LIKE) ── */
-        .container {
-            max-width: 1400px;
+        /* --- MENU LIST (HORIZONTAL ROWS) --- */
+        .menu-list {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px 80px;
-            columns: 3;
-            column-gap: 24px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        /* ── CARD ── */
-        .sandwich {
-            background: var(--card);
-            border: 1px solid var(--border-sub);
+        .sandwich-card {
+            background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            display: inline-flex;
-            flex-direction: column;
-            width: 100%;
-            margin-bottom: 24px;
-            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-            cursor: default;
-            break-inside: avoid;
+            display: flex;
+            flex-direction: row; /* Horizontal layout */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            transition: transform 0.2s;
+            cursor: pointer; /* Indicates clickable */
         }
 
-        .sandwich:hover {
-            border-color: rgba(212,168,85,0.35);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-            background: var(--card-hover);
+        .sandwich-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--tea-gold);
         }
 
-        .sandwich.hidden { display: none; }
+        .sandwich-card.hidden { display: none; }
 
+        /* Image Side - NO CROPPING */
         .image-wrap {
-            width: 100%;
-            overflow: hidden;
-            background: #130f0c;
+            width: 180px; /* Fixed width for consistency */
+            min-height: 180px;
+            flex-shrink: 0;
             position: relative;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
-
-        /* Dynamische hoogte op basis van afbeelding oriëntatie */
-        .image-wrap.landscape { aspect-ratio: 4/3; }
-        .image-wrap.portrait  { aspect-ratio: 3/4; }
-        .image-wrap.square    { aspect-ratio: 1/1; }
 
         .fixed-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures full image is visible */
             display: block;
-        }
-
-        .sandwich:hover .fixed-image { transform: scale(1.05); }
-
-        .price-badge {
-            position: absolute;
-            top: 12px; right: 12px;
-            background: var(--red);
-            color: white;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 18px;
-            letter-spacing: 0.06em;
-            padding: 4px 12px;
-            border-radius: 4px;
         }
 
         .category-badge {
             position: absolute;
-            top: 12px; left: 12px;
-            background: rgba(14,11,9,0.85);
-            border: 1px solid var(--border);
-            color: var(--gold);
-            font-size: 10px;
-            letter-spacing: 0.1em;
+            top: 10px; left: 10px;
+            background: rgba(255,255,255,0.9);
+            color: var(--turk-red);
+            font-size: 0.65rem;
+            font-weight: 800;
             text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 12px;
-            backdrop-filter: blur(4px);
+            padding: 4px 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .card-body {
-            padding: 20px;
+        /* Content Side */
+        .card-content {
             flex: 1;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            justify-content: center;
         }
 
-        .sandwich h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 20px;
-            letter-spacing: 0.05em;
-            color: white;
-            line-height: 1.15;
-        }
-
-        .sandwich p {
-            font-family: 'Crimson Pro', serif;
-            font-size: 15px;
-            color: var(--muted);
-            line-height: 1.55;
-            flex: 1;
-        }
-
-        .card-footer {
+        .card-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-top: 14px;
-            gap: 10px;
-        }
-
-        .card-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.4rem;
-            color: var(--gold);
-            letter-spacing: 0.05em;
-        }
-
-        .buy-button {
-            background: transparent;
-            color: var(--gold);
-            border: 1px solid rgba(212,168,85,0.35);
-            padding: 9px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
-        }
-
-        .buy-button:hover {
-            background: var(--red);
-            border-color: var(--red);
-            color: white;
-            box-shadow: 0 4px 16px var(--red-glow);
-        }
-
-        /* popularity bar */
-        .popularity {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 4px;
-        }
-
-        .popularity-label { font-size: 10px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
-
-        .popularity-bar {
-            flex: 1;
-            height: 3px;
-            background: var(--border-sub);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .popularity-fill {
-            height: 100%;
-            background: var(--gold);
-            border-radius: 2px;
-            transition: width 1s ease;
-        }
-
-        /* ── EMPTY STATE ── */
-        .empty-state {
-            display: none;
-            text-align: center;
-            padding: 80px 40px;
-            color: var(--muted);
-        }
-
-        .empty-state.show { display: block; }
-
-        .empty-state h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: var(--text);
+            align-items: flex-start;
             margin-bottom: 8px;
         }
 
-        /* ── CART ── */
+        .sandwich-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-right: 10px;
+        }
+
+        .price-tag {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--turk-red);
+            white-space: nowrap;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* Ingredients & Allergens */
+        .details-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .allergen-warning {
+            color: var(--turk-red);
+            font-weight: 700;
+            background: #fff0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Add Button */
+        .add-btn {
+            width: 100%;
+            background: var(--turk-white);
+            color: var(--turk-red);
+            border: 2px solid var(--turk-red);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .add-btn:hover {
+            background: var(--turk-red);
+            color: white;
+        }
+
+        /* --- MODAL (POPUP) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover { background: var(--turk-red); color: white; }
+
+        .modal-image-side {
+            width: 45%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-info-side {
+            width: 55%;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-category {
+            color: var(--turk-red);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .modal-price {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            color: var(--turk-red);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .modal-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .modal-details-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .modal-add-btn {
+            margin-top: auto;
+            background: var(--turk-red);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-add-btn:hover { background: #c00000; }
+
+        /* --- CART FAB --- */
         .cart-fab {
             position: fixed;
-            right: 28px; bottom: 28px;
-            background: var(--red);
+            right: 30px; bottom: 30px;
+            background: var(--turk-red);
             color: white;
-            width: 58px; height: 58px;
+            width: 65px; height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 6px 24px var(--red-glow);
+            box-shadow: 0 6px 20px rgba(227, 10, 23, 0.4);
             z-index: 1001;
-            transition: transform 0.2s, background 0.2s;
-            font-size: 22px;
-            border: none;
+            transition: transform 0.2s;
+            font-size: 28px;
+            border: 3px solid white;
         }
 
-        .cart-fab:hover { transform: scale(1.08); background: var(--red-deep); }
+        .cart-fab:hover { transform: scale(1.1); }
 
         .cart-count {
             position: absolute;
-            top: -4px; right: -4px;
-            background: var(--gold);
-            color: var(--ink);
-            font-size: 11px;
-            font-weight: 700;
+            top: -5px; right: -5px;
+            background: var(--tea-gold);
+            color: #5a3e00;
+            font-size: 14px;
+            font-weight: 800;
             border-radius: 50%;
-            width: 20px; height: 20px;
+            width: 28px; height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid white;
         }
 
+        /* --- CART MODAL --- */
         .cart-modal {
             display: none;
             position: fixed;
-            right: 28px; bottom: 100px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
+            right: 30px; bottom: 110px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 25px;
             z-index: 1001;
-            min-width: 320px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-            max-height: 70vh;
+            width: 350px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+            max-height: 60vh;
             overflow-y: auto;
         }
 
         .cart-modal h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            letter-spacing: 0.1em;
-            color: white;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border);
+            font-size: 1.3rem;
+            color: var(--turk-red);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--tea-gold);
+            padding-bottom: 10px;
         }
 
         .cart-item {
@@ -555,55 +567,55 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px solid var(--border-sub);
-            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
         }
 
         .cart-item-remove {
             background: none;
             border: none;
-            color: var(--muted);
+            color: var(--turk-red);
             cursor: pointer;
-            font-size: 16px;
-            padding: 0 4px;
-            transition: color 0.2s;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        .cart-item-remove:hover { color: var(--red); }
-
-        .cart-total { font-weight: 500; margin-top: 14px; text-align: right; color: var(--gold); font-size: 15px; }
+        .cart-total {
+            font-weight: 800;
+            margin-top: 15px;
+            text-align: right;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            font-family: 'Syne', sans-serif;
+        }
 
         .cart-checkout-btn {
-            margin-top: 16px;
+            margin-top: 15px;
             width: 100%;
-            background: var(--red);
+            background: var(--turk-red);
             color: white;
             border: none;
-            padding: 13px 20px;
-            border-radius: 6px;
+            padding: 14px;
+            border-radius: 8px;
             cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
             text-transform: uppercase;
-            transition: background 0.2s, box-shadow 0.2s;
         }
 
-        .cart-checkout-btn:hover { background: var(--red-deep); box-shadow: 0 4px 16px var(--red-glow); }
-
-        /* ── TOAST ── */
+        /* --- TOAST --- */
         .toast {
             position: fixed;
             bottom: 100px;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: var(--card);
-            border: 1px solid var(--gold);
-            color: var(--text);
+            background: var(--text-dark);
+            color: white;
             padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 13px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
             z-index: 2000;
             opacity: 0;
             transition: opacity 0.3s, transform 0.3s;
@@ -613,785 +625,1172 @@
 
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        /* ── FOOTER ── */
+        /* --- FOOTER --- */
         footer {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            padding: 40px;
+            background: #111;
+            color: white;
+            padding: 40px 0;
             text-align: center;
+            margin-top: 60px;
+            border-top: 5px solid var(--tea-gold);
         }
 
-        footer .footer-brand {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 26px;
-            color: var(--muted);
-            letter-spacing: 0.12em;
-            margin-bottom: 6px;
-        }
-
-        footer p { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 1024px) { .container { columns: 2; } }
-
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            header { padding: 16px 20px; }
-            nav { padding: 0 16px; }
-            nav a { padding: 14px 10px; font-size: 11px; }
-            .page-hero { padding: 40px 20px 28px; }
-            .container { columns: 1; padding: 0 20px 60px; }
-            .controls-bar, .categories-bar, .result-count { padding: 0 20px; }
-            .cart-modal { right: 16px; min-width: calc(100vw - 32px); }
+            .header-inner { flex-direction: column; gap: 10px; }
+            .nav-right { width: 100%; justify-content: space-between; }
+            nav ul { display: none; } 
+            
+            .sandwich-card {
+                flex-direction: column; /* Stack on mobile */
+            }
+
+            .image-wrap {
+                width: 100%;
+                height: 250px; /* Taller image area on mobile */
+                padding: 10px;
+            }
+
+            .cart-modal {
+                right: 10px; left: 10px; width: auto;
+            }
+            
+            .controls-container {
+                margin-top: -15px;
+            }
+
+            /* Modal Responsive */
+            .modal-content {
+                flex-direction: column;
+                width: 95%;
+                height: 90vh;
+            }
+            .modal-image-side {
+                width: 100%;
+                height: 250px;
+                flex-shrink: 0;
+            }
+            .modal-info-side {
+                width: 100%;
+                padding: 20px;
+            }
+            .modal-title { font-size: 1.8rem; }
         }
     </style>
 </head>
-
-<script src="../javascript/shopingkart.js"></script>
-
 <body>
 
-<!-- ── HEADER ── -->
-<header>
-    <span class="mc-logo">
-        <span class="mc-logo-main">
-            <span class="mc-bracket">[</span>
-            <span class="mc-block">
-                <span class="mc-big">M</span>
-                <span class="mc-bottom">can</span>
-            </span>
-            <span class="mc-bracket">]</span>
-        </span>
-        <span class="mc-tagline">COOK<span class="accent">.</span> BAKE<span class="accent">.</span> BREAK<span class="accent">.</span></span>
-    </span>
-    <div style="text-align:right;">
-        <a href="../index.html" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(24px,4vw,48px); letter-spacing:0.08em; color:#fff; line-height:1; text-decoration:none;">Turkish <span style="color:var(--gold);">Sandwich</span></a>
-        <div style="font-family:'Crimson Pro',serif; font-style:italic; font-size:12px; color:var(--muted); letter-spacing:0.12em; margin-top:4px;">2.0 — Est. 2024 — Arnhem</div>
+    <header>
+        <div class="header-inner">
+            <a href="../index.html" class="brand">
+                <span class="flag-icon"></span> TURKWICH MENU
+            </a>
+            
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html" data-i18n="nav_home">Home</a></li>
+                        <li><a href="#" data-i18n="nav_menu" class="active">Menu</a></li>
+                        <li><a href="../about/reviews.html" data-i18n="nav_reviews">Reviews</a></li>
+                    </ul>
+                </nav>
+
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="setLanguage('nl')">NL</button>
+                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="setLanguage('tr')">TR</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title" data-i18n="hero_title">AY CANIM, ölüyorum..<br>MENU</h1>
+            <p class="page-subtitle" data-i18n="hero_subtitle">Thuisbezorgd? Nee, wij bezorgen chaos.</p>
+        </div>
+    </section>
+
+    <!-- CONTROLS -->
+    <div class="controls-container">
+        <div class="search-bar">
+            <span style="color: #ccc;">🔍</span>
+            <input type="text" id="search-input" class="search-input" placeholder="Zoek een sandwich..." oninput="filterSandwiches()">
+        </div>
+
+        <div class="categories-scroll">
+            <button class="cat-btn active" onclick="setCategory('all', this)">Alles</button>
+            <button class="cat-btn" onclick="setCategory('klassiek', this)">Klassiek</button>
+            <button class="cat-btn" onclick="setCategory('demonisch', this)">Waanzinig 💀</button>
+            <button class="cat-btn" onclick="setCategory('gezond', this)">Gezond*</button>
+            <button class="cat-btn" onclick="setCategory('lagen', this)">Lagen</button>
+            <button class="cat-btn" onclick="setCategory('speciaal', this)">Speciaal</button>
+            <button class="cat-btn" onclick="setCategory('creatief', this)">Creatief</button>
+        </div>
     </div>
-</header>
 
-<!-- ── NAV ── -->
-<nav>
-    <a href="../index.html">Home</a>
-    <a href="../about/bestellen.html" class="active">Bestellen</a>
-    <a href="../about/overons.html">Over ons</a>
-    <a href="../about/contact.html">Contact</a>
-    <a href="../about/reviews.html">Reviews</a>
-</nav>
+    <!-- MENU LIST -->
+    <div class="menu-list" id="sandwich-grid">
 
-<!-- ── PAGE HERO ── -->
-<div class="page-hero">
-    <div class="page-hero-inner">
-        <div>
-            <h1 class="page-title">De <em>Menu</em></h1>
-        </div>
-        <p class="page-count">33 unieke creaties - durf jij ze allemaal?</p>
-    </div>
-</div>
-
-<!-- ── CONTROLS ── -->
-<div class="controls-bar">
-    <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="search-input" placeholder="Zoek een sandwich..." oninput="filterAndSort()">
-    </div>
-    <select class="sort-select" id="sort-select" onchange="filterAndSort()">
-        <option value="default">Sorteren: Standaard</option>
-        <option value="popular">Meest Populair</option>
-        <option value="price-asc">Prijs: Laag → Hoog</option>
-        <option value="price-desc">Prijs: Hoog → Laag</option>
-        <option value="name-asc">Naam: A → Z</option>
-        <option value="danger">Gevaarlijkheid 💀</option>
-    </select>
-    <button class="btn-random" onclick="randomSandwich()">Verras me</button>
-</div>
-
-<!-- ── CATEGORIES ── -->
-<div class="categories-bar">
-    <button class="cat-btn active" onclick="setCategory('all', this)">Alles</button>
-    <button class="cat-btn" onclick="setCategory('klassiek', this)">Klassiek</button>
-    <button class="cat-btn" onclick="setCategory('demonisch', this)">Waanzinig</button>
-    <button class="cat-btn" onclick="setCategory('gezond', this)">Gezond*</button>
-    <button class="cat-btn" onclick="setCategory('lagen', this)">Lagen</button>
-    <button class="cat-btn" onclick="setCategory('speciaal', this)">Speciaal</button>
-    <button class="cat-btn" onclick="setCategory('creatief', this)">Creatief</button>
-</div>
-
-<div class="result-count" id="result-count">33 sandwiches gevonden</div>
-
-<!-- ── GRID ── -->
-<section id="sandwiches">
-    <div class="container" id="sandwich-grid">
-
-        <div class="sandwich" data-category="demonisch" data-price="29.99" data-popularity="95" data-danger="100" data-name="100% kans op obesitas">
-            <div class="image-wrap landscape">
-                <img src="../images/obesitas.jpg" alt="100% kans op obesitas" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€29,99</span>
+        <!-- 1. Obesitas -->
+        <div class="sandwich-card" data-category="demonisch" data-name="100% kans op obesitas" data-price="29.99" data-img="../images/obesitas.jpg" data-cat-text="Waanzinig" data-ingr="Vlees, Vet, Spijt" data-allergy="Gezondheid">
+            <div class="image-wrap">
+                <img src="../images/obesitas.jpg" alt="Obesitas" class="fixed-image">
                 <span class="category-badge">Waanzinig</span>
             </div>
-            <div class="card-body">
-                <h2>De "100% kans op obesitas"</h2>
-                <p>Niemand heeft deze sandwich overleefd. behalve jeltes moeder.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:95%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "100% Kans Op Obesitas"</h2>
+                    <span class="price-tag">€29,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€29,99</span>
-                    <button class="buy-button" onclick="addToCartToast('100% kans op obesitas Sandwich', 29.99)">In winkelwagen</button>
+                <p class="description">Niemand heeft deze sandwich overleefd. behalve jeltes moeder.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥩 Vlees, Vet, Spijt</span>
+                    <span class="allergen-warning">⚠️ Gezondheid</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('100% kans op obesitas Sandwich', 29.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="creatief" data-price="7.99" data-popularity="70" data-danger="30" data-name="Bananenketchup Pasta Cracker Rijst Bonen">
-            <div class="image-wrap landscape">
-                <img src="../images/masterpiece.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€7,99</span>
+        <!-- 2. Masterpiece -->
+        <div class="sandwich-card" data-category="creatief" data-name="Bananenketchup Pasta Cracker Rijst Bonen" data-price="7.99" data-img="../images/masterpiece.jpg" data-cat-text="Creatief" data-ingr="Banana, Ketchup, Pasta" data-allergy="Logica">
+            <div class="image-wrap">
+                <img src="../images/masterpiece.jpg" alt="Masterpiece" class="fixed-image">
                 <span class="category-badge">Creatief</span>
             </div>
-            <div class="card-body">
-                <h2>De "Bananenketchup Pasta Cracker Rijst &amp; Bonen" Sandwich</h2>
-                <p>Meesterwerk</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:70%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Bananenketchup Pasta Cracker Rijst & Bonen" Sandwich</h2>
+                    <span class="price-tag">€7,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€7,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Bananenketchup Pasta Cracker Rijst & Bonen Sandwich', 7.99)">In winkelwagen</button>
+                <p class="description">Meesterwerk</p>
+                <div class="details-row">
+                    <span class="detail-item">🍌 Banana, Ketchup, Pasta</span>
+                    <span class="allergen-warning">⚠️ Logica</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Bananenketchup Masterpiece', 7.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="klassiek" data-price="1.49" data-popularity="55" data-danger="10" data-name="Pinda en Druif Prototype">
-            <div class="image-wrap landscape">
-                <img src="../images/PPBenJ.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€1,49</span>
+        <!-- 3. Pinda Druif Prototype -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Pinda en Druif Prototype" data-price="1.49" data-img="../images/PPBenJ.jpg" data-cat-text="Klassiek" data-ingr="Pindakaas, Jam, Huid" data-allergy="Noten">
+            <div class="image-wrap">
+                <img src="../images/PPBenJ.jpg" alt="Prototype" class="fixed-image">
                 <span class="category-badge">Klassiek</span>
             </div>
-            <div class="card-body">
-                <h2>De "Pinda en Druif" Sandwich</h2>
-                <p>Een PB&amp;J in zijn rauwste vorm. Een culinair misdrijf.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:55%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Pinda en Druif" Prototype</h2>
+                    <span class="price-tag">€1,49</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€1,49</span>
-                    <button class="buy-button" onclick="addToCartToast('Prototype 1: Pindakaas en Jam Sandwich', 1.49)">In winkelwagen</button>
+                <p class="description">Een PB&J in zijn rauwste vorm. Een culinair misdrijf.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥜 Pindakaas, Jam, Huid</span>
+                    <span class="allergen-warning">⚠️ Noten</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Pinda en Druif Prototype', 1.49)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="klassiek" data-price="2.99" data-popularity="80" data-danger="5" data-name="Pindakaas en Jam">
-            <div class="image-wrap landscape">
-                <img src="../images/PBenJ.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€2,99</span>
+        <!-- 4. Pinda Jam -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Pindakaas en Jam" data-price="2.99" data-img="../images/PBenJ.jpg" data-cat-text="Klassiek" data-ingr="Pindakaas, Goedkope Jam" data-allergy="Suiker">
+            <div class="image-wrap">
+                <img src="../images/PBenJ.jpg" alt="PB&J" class="fixed-image">
                 <span class="category-badge">Klassiek</span>
             </div>
-            <div class="card-body">
-                <h2>De "Pindakaas en Jam" Sandwich</h2>
-                <p>Meest normale sandwich van ze allemaal</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:80%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Pindakaas en Jam"</h2>
+                    <span class="price-tag">€2,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€2,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Pindakaas en Jam Sandwich', 2.99)">In winkelwagen</button>
+                <p class="description">Klassieker. Echter, we gebruiken alleen de goedkoopste jam uit de supermarkt.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥜 Pindakaas, Goedkope Jam</span>
+                    <span class="allergen-warning">⚠️ Suiker</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Pindakaas en Jam Sandwich', 2.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="creatief" data-price="5.99" data-popularity="65" data-danger="50" data-name="MODERNE Pindakaas en Jam">
-            <div class="image-wrap landscape">
-                <img src="../images/MPBenJ.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€5,99</span>
-                <span class="category-badge">Creatief</span>
-            </div>
-            <div class="card-body">
-                <h2>De "MODERNE Pindakaas en Jam" Sandwich</h2>
-                <p>Minimalistisch, steriel en volledig onethisch. De productie van deze sandwich heeft de CO2 uitstoot met 67% laten stijgen.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:65%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€5,99</span>
-                    <button class="buy-button" onclick="addToCartToast('MODERNE Pindakaas en Jam Sandwich', 5.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="klassiek" data-price="4.99" data-popularity="45" data-danger="20" data-name="Pindakaas met Augurk">
-            <div class="image-wrap landscape">
-                <img src="../images/PBPickle.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€4,99</span>
-                <span class="category-badge">Klassiek</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Pindakaas met Augurk" Sandwich</h2>
-                <p>nee</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:45%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€4,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Pindakaas met Augurk Sandwich', 4.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="gezond" data-price="15.99" data-popularity="60" data-danger="75" data-name="Gezonde longen">
-            <div class="image-wrap landscape">
-                <img src="../images/rook.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€15,99</span>
-                <span class="category-badge">Gezond*</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Gezonde longen" Sandwich</h2>
-                <p>Een perfecte sandwich voor rokers.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:60%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€15,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Gezonde longen Sandwich', 15.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="creatief" data-price="3.99" data-popularity="50" data-danger="15" data-name="Carrot Ginger Tea">
-            <div class="image-wrap landscape">
-                <img src="../images/ginger.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€3,99</span>
-                <span class="category-badge">Creatief</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Carrot Ginger Tea" Sandwich</h2>
-                <p>PAS OP: Gemaakt door onze gembere chef.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:50%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€3,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Carrot Ginger Tea Sandwich', 3.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="gezond" data-price="3.99" data-popularity="72" data-danger="5" data-name="Tooth Cheese">
-            <div class="image-wrap landscape">
-                <img src="../images/tandpasta.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€3,99</span>
-                <span class="category-badge">Gezond*</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Tooth Cheese" Sandwich</h2>
-                <p>Gezond, Lekker en maakt je tanden schoon!</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:72%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€3,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Tooth Cheese Sandwich', 3.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="demonisch" data-price="0.99" data-popularity="88" data-danger="90" data-name="Moldy">
-            <div class="image-wrap landscape">
-                <img src="../images/moldy.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€0,99</span>
+        <!-- 5. Moldy -->
+        <div class="sandwich-card" data-category="demonisch" data-name="Moldy Sandwich" data-price="0.99" data-img="../images/moldy.jpg" data-cat-text="Waanzinig" data-ingr="Oud Brood, Schimmel" data-allergy="Immuunsysteem">
+            <div class="image-wrap">
+                <img src="../images/moldy.jpg" alt="Moldy" class="fixed-image">
                 <span class="category-badge">Waanzinig</span>
             </div>
-            <div class="card-body">
-                <h2>De "Moldy" Sandwich</h2>
-                <p>Niet Gezond, Niet Lekker en maakt niet je tanden schoon!</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:88%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Moldy" Vintage Editie</h2>
+                    <span class="price-tag">€0,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€0,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Moldy Sandwich', 0.99)">In winkelwagen</button>
+                <p class="description">Niet Gezond, Niet Lekker en maakt niet je tanden schoon!</p>
+                <div class="details-row">
+                    <span class="detail-item">🦠 Oud Brood, Schimmel</span>
+                    <span class="allergen-warning">⚠️ Immuunsysteem</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Moldy Sandwich', 0.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="creatief" data-price="14.99" data-popularity="55" data-danger="40" data-name="Flying">
-            <div class="image-wrap landscape">
-                <img src="../images/fly.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€14,99</span>
-                <span class="category-badge">Creatief</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Flying" Sandwich</h2>
-                <p>Kijk uit het kan duivenkak bevatten!</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:55%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€14,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Flying Sandwich', 14.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="klassiek" data-price="5.99" data-popularity="68" data-danger="5" data-name="Extra Kaas">
-            <div class="image-wrap landscape">
-                <img src="../images/kaas.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€5,99</span>
-                <span class="category-badge">Klassiek</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Extra Kaas" Sandwich</h2>
-                <p>Dat is niet genoeg kaas.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:68%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€5,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Extra Kaas Sandwich', 5.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="klassiek" data-price="3.99" data-popularity="60" data-danger="5" data-name="Extra Brood">
-            <div class="image-wrap landscape">
-                <img src="../images/brood.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€3,99</span>
-                <span class="category-badge">Klassiek</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Extra Brood" Sandwich</h2>
-                <p>Dat is niet genoeg brood.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:60%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€3,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Extra Brood Sandwich', 3.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="creatief" data-price="2.99" data-popularity="75" data-danger="30" data-name="FeetWich">
-            <div class="image-wrap landscape">
-                <img src="../images/feetwich,jpg.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€2,99</span>
-                <span class="category-badge">Creatief</span>
-            </div>
-            <div class="card-body">
-                <h2>De "FeetWich" Sandwich</h2>
-                <p>Dat is niet genoeg voet.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:75%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€2,99</span>
-                    <button class="buy-button" onclick="addToCartToast('FeetWich Sandwich', 2.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="klassiek" data-price="2.99" data-popularity="78" data-danger="5" data-name="EGG">
-            <div class="image-wrap landscape">
-                <img src="../images/egg.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€2,99</span>
-                <span class="category-badge">Klassiek</span>
-            </div>
-            <div class="card-body">
-                <h2>De "EGG" Sandwich</h2>
-                <p>Een ei, gewoon een ei, tussen twee sneetjes brood.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:78%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€2,99</span>
-                    <button class="buy-button" onclick="addToCartToast('EGG Sandwich', 2.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="demonisch" data-price="0.01" data-popularity="40" data-danger="60" data-name="Werkloosheid">
-            <div class="image-wrap portrait">
-                <img src="../images/arm.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€0,01</span>
-                <span class="category-badge">Waanzinig</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Werkloosheid" Sandwich</h2>
-                <p>De titel zegt het al voor... Ons meest goedkoopste sandwich!</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:40%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€0,01</span>
-                    <button class="buy-button" onclick="addToCartToast('Werkloosheid Sandwich', 0.01)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="gezond" data-price="3.99" data-popularity="62" data-danger="5" data-name="Ik ben gezond">
-            <div class="image-wrap landscape">
-                <img src="../images/gezond.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€3,99</span>
-                <span class="category-badge">Gezond*</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Ik ben gezond" Sandwich</h2>
-                <p>Een hele lekkere sandwich.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:62%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€3,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Ik ben gezond Sandwich', 3.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="creatief" data-price="4.69" data-popularity="58" data-danger="10" data-name="Choco Musli">
-            <div class="image-wrap landscape">
-                <img src="../images/cerial.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€4,69</span>
-                <span class="category-badge">Creatief</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Choco Musli" Sandwich</h2>
-                <p>Leuk voor de ontbijt, vreselijk voor de vloer.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:58%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€4,69</span>
-                    <button class="buy-button" onclick="addToCartToast('Choco Musli Sandwich', 4.69)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="demonisch" data-price="3.99" data-popularity="77" data-danger="35" data-name="Floor">
-            <div class="image-wrap landscape">
-                <img src="../images/Floor.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€3,99</span>
-                <span class="category-badge">Waanzinig</span>
-            </div>
-            <div class="card-body">
-                <h2>De "Floor" Sandwich</h2>
-                <p>We hebben deze laten vallen terwijl we het maakte.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:77%"></div></div>
-                </div>
-                <div class="card-footer">
-                    <span class="card-price">€3,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Floor Sandwich', 3.99)">In winkelwagen</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="sandwich" data-category="speciaal" data-price="6.99" data-popularity="82" data-danger="80" data-name="Volty">
-            <div class="image-wrap landscape">
-                <img src="../images/Volty.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€6,99</span>
+        <!-- 6. Volty -->
+        <div class="sandwich-card" data-category="speciaal" data-name="Volty Sandwich" data-price="6.99" data-img="../images/Volty.jpg" data-cat-text="Speciaal" data-ingr="Batterijen, Draadjes" data-allergy="Electriciteit">
+            <div class="image-wrap">
+                <img src="../images/Volty.jpg" alt="Volty" class="fixed-image">
                 <span class="category-badge">Speciaal</span>
             </div>
-            <div class="card-body">
-                <h2>De "Volty" Sandwich</h2>
-                <p>Deze sandwich zal je laten schokken! (Wij zijn op geen enkele manier verantwoordelijk voor schokken, kortsluiting of ontploffingen)</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:82%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Volty" Shock Experience</h2>
+                    <span class="price-tag">€6,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€6,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Volty Sandwich', 6.99)">In winkelwagen</button>
+                <p class="description">Deze sandwich zal je laten schokken! (Wij zijn op geen enkele manier verantwoordelijk voor schokken)</p>
+                <div class="details-row">
+                    <span class="detail-item">⚡ Batterijen, Draadjes</span>
+                    <span class="allergen-warning">⚠️ Electriciteit</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Volty Sandwich', 6.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="speciaal" data-price="99.99" data-popularity="90" data-danger="50" data-name="Lebrons Special">
-            <div class="image-wrap landscape">
-                <img src="../images/chum.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€99,99</span>
-                <span class="category-badge">Speciaal</span>
+        <!-- 7. Werkloosheid -->
+        <div class="sandwich-card" data-category="demonisch" data-name="Werkloosheid Sandwich" data-price="0.01" data-img="../images/arm.jpg" data-cat-text="Waanzinig" data-ingr="Lucht, Armoede" data-allergy="Werkgevers">
+            <div class="image-wrap">
+                <img src="../images/arm.jpg" alt="Werkloosheid" class="fixed-image">
+                <span class="category-badge">Waanzinig</span>
             </div>
-            <div class="card-body">
-                <h2>De "chummy" Sandwich</h2>
-                <p>Chum from the chum bucket.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:90%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Werkloosheid" Special</h2>
+                    <span class="price-tag">€0,01</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€99,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Lebron Sloppy Joe Sandwich', 99.99)">In winkelwagen</button>
+                <p class="description">De titel zegt het al voor... Ons meest goedkoopste sandwich!</p>
+                <div class="details-row">
+                    <span class="detail-item">💸 Lucht, Armoede</span>
+                    <span class="allergen-warning">⚠️ Werkgevers</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Werkloosheid Sandwich', 0.01)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="creatief" data-price="8.99" data-popularity="66" data-danger="15" data-name="Egg cone">
-            <div class="image-wrap landscape">
-                <img src="../images/eggcream.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€8,99</span>
+        <!-- 8. Ik ben gezond -->
+        <div class="sandwich-card" data-category="gezond" data-name="Ik ben gezond Sandwich" data-price="3.99" data-img="../images/gezond.jpg" data-cat-text="Gezond*" data-ingr="Groenten (misschien)" data-allergy="Leugens">
+            <div class="image-wrap">
+                <img src="../images/gezond.jpg" alt="Gezond" class="fixed-image">
+                <span class="category-badge">Gezond*</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Ik ben gezond"</h2>
+                    <span class="price-tag">€3,99</span>
+                </div>
+                <p class="description">Een hele lekkere sandwich.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥬 Groenten (misschien)</span>
+                    <span class="allergen-warning">⚠️ Leugens</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Ik ben gezond Sandwich', 3.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 9. Choco Musli -->
+        <div class="sandwich-card" data-category="creatief" data-name="Choco Musli Sandwich" data-price="4.69" data-img="../images/cerial.jpg" data-cat-text="Creatief" data-ingr="Aardbei Musli, Melk" data-allergy="Glutenvrij (nee)">
+            <div class="image-wrap">
+                <img src="../images/cerial.jpg" alt="Choco Musli" class="fixed-image">
                 <span class="category-badge">Creatief</span>
             </div>
-            <div class="card-body">
-                <h2>De "Egg cone" Sandwich</h2>
-                <p>Een ei tussen 2 ijskoontjes.</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:66%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Choco Musli"</h2>
+                    <span class="price-tag">€4,69</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€8,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Egg Cone Sandwich', 8.99)">In winkelwagen</button>
+                <p class="description">Leuk voor de ontbijt, vreselijk voor de vloer.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥣 Aardbei Musli, Melk</span>
+                    <span class="allergen-warning">⚠️ Glutenvrij (nee)</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Choco Musli Sandwich', 4.69)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="lagen" data-price="2.99" data-popularity="70" data-danger="20" data-name="Triwich">
-            <div class="image-wrap landscape">
-                <img src="../images/triwich.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€2,99</span>
+        <!-- 10. Floor -->
+        <div class="sandwich-card" data-category="demonisch" data-name="Floor Sandwich" data-price="3.99" data-img="../images/Floor.jpg" data-cat-text="Waanzinig" data-ingr="Stof, Haar, Vloer" data-allergy="Hygiëne">
+            <div class="image-wrap">
+                <img src="../images/Floor.jpg" alt="Floor" class="fixed-image">
+                <span class="category-badge">Waanzinig</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Floor" Edition</h2>
+                    <span class="price-tag">€3,99</span>
+                </div>
+                <p class="description">We hebben deze laten vallen terwijl we het maakte.</p>
+                <div class="details-row">
+                    <span class="detail-item">🧼 Stof, Haar, Vloer</span>
+                    <span class="allergen-warning">⚠️ Hygiëne</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Floor Sandwich', 3.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 11. Extra Kaas -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Extra Kaas Sandwich" data-price="5.99" data-img="../images/kaas.jpg" data-cat-text="Klassiek" data-ingr="Goudse, Cheddar, Mozza" data-allergy="Cholesterol">
+            <div class="image-wrap">
+                <img src="../images/kaas.jpg" alt="Kaas" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Extra Kaas" Overload</h2>
+                    <span class="price-tag">€5,99</span>
+                </div>
+                <p class="description">Dat is niet genoeg kaas.</p>
+                <div class="details-row">
+                    <span class="detail-item">🧀 Goudse, Cheddar, Mozza</span>
+                    <span class="allergen-warning">⚠️ Cholesterol</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Extra Kaas Sandwich', 5.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 12. Extra Brood -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Extra Brood Sandwich" data-price="3.99" data-img="../images/brood.jpg" data-cat-text="Klassiek" data-ingr="Wit Brood, Korsten" data-allergy="Gluten">
+            <div class="image-wrap">
+                <img src="../images/brood.jpg" alt="Brood" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Extra Brood"</h2>
+                    <span class="price-tag">€3,99</span>
+                </div>
+                <p class="description">Dat is niet genoeg brood.</p>
+                <div class="details-row">
+                    <span class="detail-item">🍞 Wit Brood, Korsten</span>
+                    <span class="allergen-warning">⚠️ Gluten</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Extra Brood Sandwich', 3.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 13. FeetWich -->
+        <div class="sandwich-card" data-category="creatief" data-name="FeetWich Sandwich" data-price="2.99" data-img="../images/feetwich,jpg.jpg" data-cat-text="Creatief" data-ingr="Voeten, Socken" data-allergy="Geur">
+            <div class="image-wrap">
+                <img src="../images/feetwich,jpg.jpg" alt="FeetWich" class="fixed-image">
+                <span class="category-badge">Creatief</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "FeetWich"</h2>
+                    <span class="price-tag">€2,99</span>
+                </div>
+                <p class="description">Dat is niet genoeg voet.</p>
+                <div class="details-row">
+                    <span class="detail-item">🦶 Voeten, Socken</span>
+                    <span class="allergen-warning">⚠️ Geur</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('FeetWich Sandwich', 2.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 14. EGG -->
+        <div class="sandwich-card" data-category="klassiek" data-name="EGG Sandwich" data-price="2.99" data-img="../images/egg.jpg" data-cat-text="Klassiek" data-ingr="Ei, Brood" data-allergy="Eiwit">
+            <div class="image-wrap">
+                <img src="../images/egg.jpg" alt="Egg" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "EGG"</h2>
+                    <span class="price-tag">€2,99</span>
+                </div>
+                <p class="description">Een ei, gewoon een ei, tussen twee sneetjes brood.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥚 Ei, Brood</span>
+                    <span class="allergen-warning">⚠️ Eiwit</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('EGG Sandwich', 2.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 15. Triwich -->
+        <div class="sandwich-card" data-category="lagen" data-name="Triwich Sandwich" data-price="2.99" data-img="../images/triwich.jpg" data-cat-text="Lagen" data-ingr="3x Brood, 2x Vulling" data-allergy="Wiskunde">
+            <div class="image-wrap">
+                <img src="../images/triwich.jpg" alt="Triwich" class="fixed-image">
                 <span class="category-badge">Lagen</span>
             </div>
-            <div class="card-body">
-                <h2>De "Triwich"</h2>
-                <p>Sandwich³</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:70%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Triwich"</h2>
+                    <span class="price-tag">€2,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€2,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Triwich Sandwich', 2.99)">In winkelwagen</button>
+                <p class="description">Sandwich³</p>
+                <div class="details-row">
+                    <span class="detail-item">🥪 3x Brood, 2x Vulling</span>
+                    <span class="allergen-warning">⚠️ Wiskunde</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Triwich Sandwich', 2.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="lagen" data-price="5.99" data-popularity="75" data-danger="25" data-name="Quadwich">
-            <div class="image-wrap landscape">
-                <img src="../images/quadwich.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€5,99</span>
+        <!-- 16. Quadwich -->
+        <div class="sandwich-card" data-category="lagen" data-name="Quadwich Sandwich" data-price="5.99" data-img="../images/quadwich.jpg" data-cat-text="Lagen" data-ingr="4x Brood, 3x Vulling" data-allergy="Hoogte">
+            <div class="image-wrap">
+                <img src="../images/quadwich.jpg" alt="Quadwich" class="fixed-image">
                 <span class="category-badge">Lagen</span>
             </div>
-            <div class="card-body">
-                <h2>De "Quadwich"</h2>
-                <p>Sandwich⁴</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:75%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Quadwich"</h2>
+                    <span class="price-tag">€5,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€5,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Quadwich Sandwich', 5.99)">In winkelwagen</button>
+                <p class="description">Sandwich⁴</p>
+                <div class="details-row">
+                    <span class="detail-item">🥪 4x Brood, 3x Vulling</span>
+                    <span class="allergen-warning">⚠️ Hoogte</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Quadwich Sandwich', 5.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="lagen" data-price="11.99" data-popularity="80" data-danger="30" data-name="Pentawich">
-            <div class="image-wrap landscape">
-                <img src="../images/pentawich.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€11,99</span>
+        <!-- 17. Pentawich -->
+        <div class="sandwich-card" data-category="lagen" data-name="Pentawich Sandwich" data-price="11.99" data-img="../images/pentawich.jpg" data-cat-text="Lagen" data-ingr="5x Brood, 4x Vulling" data-allergy="Stabiliteit">
+            <div class="image-wrap">
+                <img src="../images/pentawich.jpg" alt="Pentawich" class="fixed-image">
                 <span class="category-badge">Lagen</span>
             </div>
-            <div class="card-body">
-                <h2>De "Pentawich"</h2>
-                <p>Sandwich⁵</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:80%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Pentawich"</h2>
+                    <span class="price-tag">€11,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€11,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Pentawich Sandwich', 11.99)">In winkelwagen</button>
+                <p class="description">Sandwich⁵</p>
+                <div class="details-row">
+                    <span class="detail-item">🥪 5x Brood, 4x Vulling</span>
+                    <span class="allergen-warning">⚠️ Stabiliteit</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Pentawich Sandwich', 11.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="lagen" data-price="5.99" data-popularity="65" data-danger="20" data-name="Lasagnich">
-            <div class="image-wrap landscape">
-                <img src="../images/Lasagne.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€5,99</span>
+        <!-- 18. Lasagnich -->
+        <div class="sandwich-card" data-category="lagen" data-name="Lasagnich Sandwich" data-price="5.99" data-img="../images/Lasagne.jpg" data-cat-text="Lagen" data-ingr="Bladerdeeg, Bolognese" data-allergy="Categorieën">
+            <div class="image-wrap">
+                <img src="../images/Lasagne.jpg" alt="Lasagnich" class="fixed-image">
                 <span class="category-badge">Lagen</span>
             </div>
-            <div class="card-body">
-                <h2>De "Lasagnich"</h2>
-                <p>Een lasagne met sandwich</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:65%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Lasagnich"</h2>
+                    <span class="price-tag">€5,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€5,99</span>
-                    <button class="buy-button" onclick="addToCartToast('Lasagnich Sandwich', 5.99)">In winkelwagen</button>
+                <p class="description">Een lasagne met sandwich</p>
+                <div class="details-row">
+                    <span class="detail-item">🍝 Bladerdeeg, Bolognese</span>
+                    <span class="allergen-warning">⚠️ Categorieën</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Lasagnich Sandwich', 5.99)">+ Toevoegen</button>
             </div>
         </div>
 
-        <div class="sandwich" data-category="speciaal" data-price="0.99" data-popularity="91" data-danger="10" data-name="ChillWich">
-            <div class="image-wrap landscape">
-                <img src="../images/frog.jpg" class="fixed-image" onload="detectOrientation(this)">
-                <span class="price-badge">€?</span>
+        <!-- 19. ChillWich -->
+        <div class="sandwich-card" data-category="speciaal" data-name="ChillWich Sandwich" data-price="0.99" data-img="../images/frog.jpg" data-cat-text="Speciaal" data-ingr="Kikker, Gras" data-allergy="Springend">
+            <div class="image-wrap">
+                <img src="../images/frog.jpg" alt="ChillWich" class="fixed-image">
                 <span class="category-badge">Speciaal</span>
             </div>
-            <div class="card-body">
-                <h2>De "ChillWich"</h2>
-                <p>1 april kikker in je sandwich</p>
-                <div class="popularity">
-                    <span class="popularity-label">Populair</span>
-                    <div class="popularity-bar"><div class="popularity-fill" style="width:91%"></div></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "ChillWich"</h2>
+                    <span class="price-tag">€0,99</span>
                 </div>
-                <div class="card-footer">
-                    <span class="card-price">€?</span>
-                    <button class="buy-button" onclick="addToCartToast('Chill Sandwich', 0.99)">In winkelwagen</button>
+                <p class="description">1 april kikker in je sandwich</p>
+                <div class="details-row">
+                    <span class="detail-item">🐸 Kikker, Gras</span>
+                    <span class="allergen-warning">⚠️ Springend</span>
                 </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Chill Sandwich', 0.99)">+ Toevoegen</button>
             </div>
         </div>
 
+        <!-- 20. Lebrons Special -->
+        <div class="sandwich-card" data-category="speciaal" data-name="Lebrons Special" data-price="99.99" data-img="../images/chum.jpg" data-cat-text="Speciaal" data-ingr="Visresten, Emoties" data-allergy="NBA">
+            <div class="image-wrap">
+                <img src="../images/chum.jpg" alt="Chummy" class="fixed-image">
+                <span class="category-badge">Speciaal</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Chummy" Sloppy Joe</h2>
+                    <span class="price-tag">€99,99</span>
+                </div>
+                <p class="description">Chum from the chum bucket.</p>
+                <div class="details-row">
+                    <span class="detail-item">🎣 Visresten, Emoties</span>
+                    <span class="allergen-warning">⚠️ NBA</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Lebron Sloppy Joe Sandwich', 99.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 21. Egg Cone -->
+        <div class="sandwich-card" data-category="creatief" data-name="Egg cone Sandwich" data-price="8.99" data-img="../images/eggcream.jpg" data-cat-text="Creatief" data-ingr="Ijs, Rauw Ei" data-allergy="Temperatuur">
+            <div class="image-wrap">
+                <img src="../images/eggcream.jpg" alt="Egg Cone" class="fixed-image">
+                <span class="category-badge">Creatief</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Egg Cone"</h2>
+                    <span class="price-tag">€8,99</span>
+                </div>
+                <p class="description">Een ei tussen 2 ijskoontjes.</p>
+                <div class="details-row">
+                    <span class="detail-item">🍦 Ijs, Rauw Ei</span>
+                    <span class="allergen-warning">⚠️ Temperatuur</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Egg Cone Sandwich', 8.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 22. Flying -->
+        <div class="sandwich-card" data-category="creatief" data-name="Flying Sandwich" data-price="14.99" data-img="../images/fly.jpg" data-cat-text="Creatief" data-ingr="Duivenkak, Lucht" data-allergy="Vogels">
+            <div class="image-wrap">
+                <img src="../images/fly.jpg" alt="Flying" class="fixed-image">
+                <span class="category-badge">Creatief</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Flying"</h2>
+                    <span class="price-tag">€14,99</span>
+                </div>
+                <p class="description">Kijk uit het kan duivenkak bevatten!</p>
+                <div class="details-row">
+                    <span class="detail-item">🕊️ Duivenkak, Lucht</span>
+                    <span class="allergen-warning">⚠️ Vogels</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Flying Sandwich', 14.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 23. Carrot Ginger Tea -->
+        <div class="sandwich-card" data-category="creatief" data-name="Carrot Ginger Tea Sandwich" data-price="3.99" data-img="../images/ginger.jpg" data-cat-text="Creatief" data-ingr="Wortel, Gember" data-allergy="Brandend">
+            <div class="image-wrap">
+                <img src="../images/ginger.jpg" alt="Ginger" class="fixed-image">
+                <span class="category-badge">Creatief</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Carrot Ginger Tea"</h2>
+                    <span class="price-tag">€3,99</span>
+                </div>
+                <p class="description">PAS OP: Gemaakt door onze gembere chef.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥕 Wortel, Gember</span>
+                    <span class="allergen-warning">⚠️ Brandend</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Carrot Ginger Tea Sandwich', 3.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- 24. Tooth Cheese -->
+        <div class="sandwich-card" data-category="gezond" data-name="Tooth Cheese Sandwich" data-price="3
+.99" data-img="../images/tandpasta.jpg" data-cat-text="Gezond*" data-ingr="Kaas, Tandpasta" data-allergy="Tandarts">
+            <div class="image-wrap">
+                <img src="../images/tandpasta.jpg" alt="Tooth Cheese" class="fixed-image">
+                <span class="category-badge">Gezond*</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Tooth Cheese"</h2>
+                    <span class="price-tag">€3,99</span>
+                </div>
+                <p class="description">Een sandwich die je tanden schoonmaakt.</p>
+                <div class="details-row">
+                    <span class="detail-item">🧀 Kaas, Tandpasta</span>
+                    <span class="allergen-warning">⚠️ Tandarts</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Tooth Cheese Sandwich', 3.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+                <!-- NEW ITEM 25: Tuna Mayo Onion -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Tuna Mayo Onion Sandwich" data-price="4.99" data-img="../images/n.jpg" data-cat-text="Klassiek" data-ingr="Tuna, Mayonaise, Rode Ui" data-allergy="Vis, Ei">
+            <div class="image-wrap">
+                <img src="../images/n.jpg" alt="Tuna Mayo" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Tuna Mayo & Ui"</h2>
+                    <span class="price-tag">€4,99</span>
+                </div>
+                <p class="description">Een klassieker voor degenen die houden van vis en tranen tegelijkertijd.</p>
+                <div class="details-row">
+                    <span class="detail-item">🐟 Tuna, Mayo, Ui</span>
+                    <span class="allergen-warning">⚠️ Vis, Tranen</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Tuna Mayo Onion Sandwich', 4.99)">+ Toevoegen</button>
+            </div>
+        </div>
+                <!-- NEW ITEM 39: Peanut Butter And Pickle -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Pindakaas met Augurk Sandwich" data-price="4.99" data-img="../images/PBPickle.jpg" data-cat-text="Klassiek" data-ingr="Pindakaas, Augurk" data-allergy="Noten, Zuur">
+            <div class="image-wrap">
+                <img src="../images/PBPickle.jpg" alt="PB Pickle" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Pindakaas met Augurk"</h2>
+                    <span class="price-tag">€4,99</span>
+                </div>
+                <p class="description">nee</p>
+                <div class="details-row">
+                    <span class="detail-item">🥜 Pindakaas, Augurk</span>
+                    <span class="allergen-warning">⚠️ Noten, Zuur</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Pindakaas met Augurk Sandwich', 4.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+
+        <!-- NEW ITEM 26: Aldi Sardines Tom Yum -->
+        <div class="sandwich-card" data-category="demonisch" data-name="Aldi Sardines Tom Yum Ramen Hotdog" data-price="8.99" data-img="../images/l.jpg" data-cat-text="Waanzinig" data-ingr="Sardines, Tom Yum, Ramen, Hotdogbroodje" data-allergy="Zeewater, Schokkergarantie">
+            <div class="image-wrap">
+                <img src="../images/l.jpg" alt="Sardines Ramen" class="fixed-image">
+                <span class="category-badge">Waanzinig</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Aldi Tom Yum Chaos"</h2>
+                    <span class="price-tag">€8,99</span>
+                </div>
+                <p class="description">Sardines, Tom Yum en Ramen in een hotdogbroodje. Je neus zal nooit meer dezelfde zijn.</p>
+                <div class="details-row">
+                    <span class="detail-item">🌶️ Sardines, Tom Yum, Ramen</span>
+                    <span class="allergen-warning">⚠️ Reukzin</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Aldi Sardines Tom Yum Ramen Hotdog', 8.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 27: Chocodilla Kit Kat Taco Bell -->
+        <div class="sandwich-card" data-category="creatief" data-name="Chocodilla Kit Kat Taco Bell Lisbon" data-price="12.99" data-img="../images/k.jpg" data-cat-text="Creatief" data-ingr="Chocodilla, Kit Kat, Taco Bell Saus" data-allergy="Suiker, Portugal">
+            <div class="image-wrap">
+                <img src="../images/k.jpg" alt="Chocodilla Kit Kat" class="fixed-image">
+                <span class="category-badge">Creatief</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Lisbon Sweet Trap"</h2>
+                    <span class="price-tag">€12,99</span>
+                </div>
+                <p class="description">Gegeten in Lissabon. Een zoete nachtmerrie met een knapperige kern.</p>
+                <div class="details-row">
+                    <span class="detail-item">🍫 Chocodilla, Kit Kat, Taco Saus</span>
+                    <span class="allergen-warning">⚠️ Diabetes</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Chocodilla Kit Kat Taco Bell Lisbon', 12.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 28: Cucumber Kimchi Hotdog -->
+        <div class="sandwich-card" data-category="speciaal" data-name="Cucumber Kimchi Hotdog" data-price="5.99" data-img="../images/j.jpg" data-cat-text="Speciaal" data-ingr="Komkommer, Kimchi, Hotdogworst" data-allergy="Gisting, Zuur">
+            <div class="image-wrap">
+                <img src="../images/j.jpg" alt="Kimchi Hotdog" class="fixed-image">
+                <span class="category-badge">Speciaal</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Zure Komkommer"</h2>
+                    <span class="price-tag">€5,99</span>
+                </div>
+                <p class="description">Fermenteerde groenten in een broodje. Het smaakt naar tijd en zuur.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥒 Komkommer, Kimchi, Worst</span>
+                    <span class="allergen-warning">⚠️ Proefpapillen</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Cucumber Kimchi Hotdog', 5.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 29: Expensive Cauliflower -->
+        <div class="sandwich-card" data-category="gezond" data-name="Expensive Cauliflower Sandwich" data-price="15.99" data-img="../images/i.jpg" data-cat-text="Gezond*" data-ingr="Bloemkool, Geld, Verachting" data-allergy="Armoede">
+            <div class="image-wrap">
+                <img src="../images/i.jpg" alt="Cauliflower" class="fixed-image">
+                <span class="category-badge">Gezond*</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Duur Bloemkool"</h2>
+                    <span class="price-tag">€15,99</span>
+                </div>
+                <p class="description">"Het is dure bloemkool" - Een bekende zin van een bekende persoon.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥦 Bloemkool, Wit Bord</span>
+                    <span class="allergen-warning">⚠️ Bankrekening</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Expensive Cauliflower Sandwich', 15.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 30: Friend Sent Photo -->
+        <div class="sandwich-card" data-category="demonisch" data-name="Friend Sent A Photo Of His Meal" data-price="0.00" data-img="../images/h.jpg" data-cat-text="Waanzinig" data-ingr="Onbekend, Waarschijnlijk Giftig" data-allergy="Vrienden">
+            <div class="image-wrap">
+                <img src="../images/h.jpg" alt="Friend Meal" class="fixed-image">
+                <span class="category-badge">Waanzinig</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Wat eet jij?"</h2>
+                    <span class="price-tag">Gratis</span>
+                </div>
+                <p class="description">Een foto van wat je vriend at. Wij weten niet wat het is, maar jij wel. Risico's voor eigen rekening.</p>
+                <div class="details-row">
+                    <span class="detail-item">❓ Onbekende Ingrediënten</span>
+                    <span class="allergen-warning">⚠️ Vriendschap</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Friend Sent A Photo Of His Meal', 0.00)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 31: Full English Breakfast Loaf -->
+        <div class="sandwich-card" data-category="lagen" data-name="Full English Breakfast In A Loaf" data-price="9.99" data-img="../images/g.jpg" data-cat-text="Lagen" data-ingr="Bacon, Eieren, Bohnen, Broodroos" data-allergy="Ontbijt, Engeland">
+            <div class="image-wrap">
+                <img src="../images/g.jpg" alt="English Breakfast" class="fixed-image">
+                <span class="category-badge">Lagen</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Engelse Broodroos"</h2>
+                    <span class="price-tag">€9,99</span>
+                </div>
+                <p class="description">Een volledig Engels ontbijt, maar dan verstopt in een broodroos. Compact chaos.</p>
+                <div class="details-row">
+                    <span class="detail-item">🇬🇧 Bacon, Eieren, Bohnen</span>
+                    <span class="allergen-warning">⚠️ Regenschade</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Full English Breakfast In A Loaf', 9.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 32: Onion Banana Honey -->
+        <div class="sandwich-card" data-category="creatief" data-name="Onion Banana Honey Sandwich" data-price="3.99" data-img="../images/f.jpg" data-cat-text="Creatief" data-ingr="Ui, Banaan, Honing" data-allergy="Zoet, Pungent">
+            <div class="image-wrap">
+                <img src="../images/f.jpg" alt="Banana Honey" class="fixed-image">
+                <span class="category-badge">Creatief</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Zoete Ui"</h2>
+                    <span class="price-tag">€3,99</span>
+                </div>
+                <p class="description">Honing zoet, banaan zacht, ui scherp. Een smaakcombinatie die je geest zal breken.</p>
+                <div class="details-row">
+                    <span class="detail-item">🍯 Honing, Banaan, Ui</span>
+                    <span class="allergen-warning">⚠️ Logica</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Onion Banana Honey Sandwich', 3.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 33: Peanut Butter And Onion -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Peanut Butter And Onion Sandwich" data-price="2.49" data-img="../images/e.jpg" data-cat-text="Klassiek" data-ingr="Pindakaas, Ui" data-allergy="Noten, Tranen">
+            <div class="image-wrap">
+                <img src="../images/e.jpg" alt="PB Onion" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Pinda & Traan"</h2>
+                    <span class="price-tag">€2,49</span>
+                </div>
+                <p class="description">Pindakaas is lekker. Ui is slecht. Samen? Een psychologische test.</p>
+                <div class="details-row">
+                    <span class="detail-item">🥜 Pindakaas, Ui</span>
+                    <span class="allergen-warning">⚠️ Noten, Ogen</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Peanut Butter And Onion Sandwich', 2.49)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 34: Peanut Butter On Burger -->
+        <div class="sandwich-card" data-category="demonisch" data-name="Peanut Butter On A Burger" data-price="6.99" data-img="../images/d.jpg" data-cat-text="Waanzinig" data-ingr="Burger Patty, Pindakaas" data-allergy="Vlees, Noten">
+            <div class="image-wrap">
+                <img src="../images/d.jpg" alt="PB Burger" class="fixed-image">
+                <span class="category-badge">Waanzinig</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Pinda Burger"</h2>
+                    <span class="price-tag">€6,99</span>
+                </div>
+                <p class="description">Waarom ketchup als je pindakaas kunt gebruiken? Vraag het niet, eet het.</p>
+                <div class="details-row">
+                    <span class="detail-item">🍔 Patty, Pindakaas</span>
+                    <span class="allergen-warning">⚠️ Maagzuur</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Peanut Butter On A Burger', 6.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 35: PB Applesauce Jujubes -->
+        <div class="sandwich-card" data-category="gezond" data-name="Peanut Butter Applesauce Jujubes" data-price="4.49" data-img="../images/c.jpg" data-cat-text="Gezond*" data-ingr="Pindakaas, Appelmoes, Jujubes" data-allergy="Kindersnoep">
+            <div class="image-wrap">
+                <img src="../images/c.jpg" alt="PB Applesauce" class="fixed-image">
+                <span class="category-badge">Gezond*</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Kinderfeest"</h2>
+                    <span class="price-tag">€4,49</span>
+                </div>
+                <p class="description">Appelmoes, pindakaas en rode suikercirkels. Smaakt naar schoolkampioen.</p>
+                <div class="details-row">
+                    <span class="detail-item">🍎 Appelmoes, Pindakaas, Snoep</span>
+                    <span class="allergen-warning">⚠️ Tandarts</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Peanut Butter Applesauce Jujubes', 4.49)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 36: Pickles Inside Hotdog -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Pickles Inside Of Hotdog" data-price="3.49" data-img="../images/b.jpg" data-cat-text="Klassiek" data-ingr="Hotdog, Augurken" data-allergy="Zuur">
+            <div class="image-wrap">
+                <img src="../images/b.jpg" alt="Pickle Hotdog" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Zure Wors"</h2>
+                    <span class="price-tag">€3,49</span>
+                </div>
+                <p class="description">Augurken *in* de worst gesneden. Voor de echte avonturier.</p>
+                <div class="details-row">
+                    <span class="detail-item">🌭 Worst, Augurken</span>
+                    <span class="allergen-warning">⚠️ Verassing</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Pickles Inside Of Hotdog', 3.49)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 37: Pickle Instead of Bun -->
+        <div class="sandwich-card" data-category="demonisch" data-name="Sandwich With A Pickle Instead Of A Bun" data-price="5.99" data-img="../images/a.jpg" data-cat-text="Waanzinig" data-ingr="Augurk, Vulling" data-allergy="Broodloos">
+            <div class="image-wrap">
+                <img src="../images/a.jpg" alt="Pickle Bun" class="fixed-image">
+                <span class="category-badge">Waanzinig</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Augurk Brood"</h2>
+                    <span class="price-tag">€5,99</span>
+                </div>
+                <p class="description">Geen brood nodig. Gebruik gewoon een grote augurk als container. Yum!</p>
+                <div class="details-row">
+                    <span class="detail-item">🥒 Grote Augurk, Vulling</span>
+                    <span class="allergen-warning">⚠️ Gluten-vrij (toevallig)</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Sandwich With A Pickle Instead Of A Bun', 5.99)">+ Toevoegen</button>
+            </div>
+        </div>
+
+        <!-- NEW ITEM 38: Tuna Tomato Onion -->
+        <div class="sandwich-card" data-category="klassiek" data-name="Tuna Tomato Onion Sandwich" data-price="4.49" data-img="../images/tuna tomato onion.jpg" data-cat-text="Klassiek" data-ingr="Tuna, Tomaat, Ui" data-allergy="Vis, Groente">
+            <div class="image-wrap">
+                <img src="../images/tuna tomato onion.jpg" alt="Tuna Tomato" class="fixed-image">
+                <span class="category-badge">Klassiek</span>
+            </div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h2 class="sandwich-title">De "Rode Tuna"</h2>
+                    <span class="price-tag">€4,49</span>
+                </div>
+                <p class="description">Tomaat, ui en tuna. Simpel, effectief en nat.</p>
+                <div class="details-row">
+                    <span class="detail-item">🐟 Tuna, Tomaat, Ui</span>
+                    <span class="allergen-warning">⚠️ Nat Brood</span>
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCartToast('Tuna Tomato Onion Sandwich', 4.49)">+ Toevoegen</button>
+            </div>
+        </div>
+
+
+    </div> <!-- End Menu List -->
+
+    <!-- CART FAB -->
+    <button class="cart-fab" onclick="toggleCart()" aria-label="Winkelwagen openen">
+        🛒
+        <span class="cart-count">0</span>
+    </button>
+
+    <!-- CART MODAL -->
+    <div class="cart-modal">
+        <h3 data-i18n="cart_title">Winkelwagen</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total" data-i18n="cart_total">Totaal: €<span id="cart-total">0.00</span></div>
+        <button class="cart-checkout-btn" onclick="checkout()" data-i18n="cart_checkout">Afrekenen</button>
     </div>
 
-    <div class="empty-state" id="empty-state">
-        <h3>Geen sandwiches gevonden</h3>
-        <p>Probeer een andere zoekterm of categorie</p>
+    <!-- SANDWICH DETAIL MODAL (POPUP) -->
+    <div class="modal-overlay" id="sandwich-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-image-side">
+                <img src="" alt="Sandwich Detail" class="modal-image" id="modal-img">
+            </div>
+            
+            <div class="modal-info-side">
+                <div class="modal-category" id="modal-cat">Categorie</div>
+                <h2 class="modal-title" id="modal-title">Sandwich Name</h2>
+                <div class="modal-price" id="modal-price">€0,00</div>
+                <p class="modal-desc" id="modal-desc">Description goes here.</p>
+                
+                <div class="modal-details-label">Ingrediënten & Allergieën:</div>
+                <div class="details-row" style="margin-bottom: 20px;">
+                    <span class="detail-item" id="modal-ingr">🥩 Ingrediënten</span>
+                    <span class="allergen-warning" id="modal-allergy">⚠️ Allergie</span>
+                </div>
+
+                <button class="modal-add-btn" id="modal-add-btn">
+                    <span>🛒</span> Voeg toe aan winkelwagen
+                </button>
+            </div>
+        </div>
     </div>
-</section>
 
-<!-- ── CART ── -->
-<button class="cart-fab" onclick="toggleCart()" aria-label="Winkelwagen openen">
-    🛒
-    <span class="cart-count">0</span>
-</button>
+    <div class="toast" id="toast"></div>
 
-<div class="cart-modal">
-    <h3>Winkelwagen</h3>
-    <div id="cart-items"></div>
-    <div class="cart-total">Totaal: €<span id="cart-total">0.00</span></div>
-    <button class="cart-checkout-btn" onclick="checkout()">Afrekenen</button>
-</div>
+    <footer>
+        <div class="container">
+            <h2>TURKWICH</h2>
+            <p>Arnhem, Netherlands</p>
+            <div style="font-size: 0.8rem; color: #888; margin-top: 10px;">
+                <p data-i18n="footer_note">* Vers betekent: Minder dan 3 dagen oud. Waarschijnlijk.</p>
+                <p>© 2024 KaasRijkeTurk. Hoşçakal, ölme!</p>
+            </div>
+        </div>
+    </footer>
 
-<div class="toast" id="toast"></div>
+    <script>
+        // --- TRANSLATIONS ---
+        const translations = {
+            nl: {
+                nav_home: "Home",
+                nav_menu: "Menu",
+                nav_reviews: "Reviews",
+                hero_title: "AY CANIM, ölüyorum..<br>MENU",
+                hero_subtitle: "Thuisbezorgd? Nee, wij bezorgen chaos.",
+                cart_title: "Winkelwagen",
+                cart_total: "Totaal: €",
+                cart_checkout: "Afrekenen",
+                footer_note: "* Vers betekent: Minder dan 3 dagen oud. Waarschijnlijk."
+            },
+            en: {
+                nav_home: "Home",
+                nav_menu: "Menu",
+                nav_reviews: "Reviews",
+                hero_title: "AY CANIM, ölüyorum..<br>MENU",
+                hero_subtitle: "Thuisbezorgd? Nee, wij bezorgen chaos.",
+                cart_title: "Winkelwagen",
+                cart_total: "Totaal: €",
+                cart_checkout: "Afrekenen",
+                footer_note: "* Vers betekent: Minder dan 3 dagen oud. Waarschijnlijk."
+            },
+            tr: {
+                nav_home: "Ana Sayfa",
+                nav_menu: "Menü",
+                nav_reviews: "Yorumlar",
+                hero_title: "AY CANIM, ölüyorum..<br>MENÜ",
+                hero_subtitle: "Teslimat? Hayır, biz kaosu teslim ediyoruz.",
+                cart_title: "Sepetim",
+                cart_total: "Toplam: €",
+                cart_checkout: "Öde",
+                footer_note: "* Taze demek: 3 günden eski değil. Muhtemelen."
+            }
+        };
 
-<!-- ── FOOTER ── -->
-<footer>
-    <div class="footer-brand">Turkish Sandwich 2.0</div>
-    <p>© 2024 KaasRijkeTurk · Arnhem · Alle rechten voorbehouden</p>
-    <p style="margin-top:8px; font-size:10px;">* Gezond is een relatief begrip</p>
-</footer>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
 
-<script>
-    let activeCategory = 'all';
-
-    // Detect image orientation and set class
-    function detectOrientation(img) {
-        img.addEventListener('load', function() {
-            const wrap = this.closest('.image-wrap');
-            if (!wrap) return;
-            const ratio = this.naturalWidth / this.naturalHeight;
-            wrap.classList.remove('landscape', 'portrait', 'square');
-            if (ratio > 1.2) wrap.classList.add('landscape');
-            else if (ratio < 0.8) wrap.classList.add('portrait');
-            else wrap.classList.add('square');
-        });
-        if (img.complete && img.naturalWidth > 0) {
-            const wrap = img.closest('.image-wrap');
-            if (!wrap) return;
-            const ratio = img.naturalWidth / img.naturalHeight;
-            wrap.classList.remove('landscape', 'portrait', 'square');
-            if (ratio > 1.2) wrap.classList.add('landscape');
-            else if (ratio < 0.8) wrap.classList.add('portrait');
-            else wrap.classList.add('square');
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if(key === 'hero_title') el.innerHTML = translations[lang][key];
+                    else el.textContent = translations[lang][key];
+                }
+            });
         }
-    }
 
-    function setCategory(cat, btn) {
-        activeCategory = cat;
-        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        filterAndSort();
-    }
+        // --- SHOPPING CART LOGIC ---
+        let cart = [];
+        let cartTotal = 0;
 
-    function filterAndSort() {
-        const search = document.getElementById('search-input').value.toLowerCase();
-        const sort = document.getElementById('sort-select').value;
-        const grid = document.getElementById('sandwich-grid');
-        const cards = Array.from(grid.querySelectorAll('.sandwich'));
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
 
-        let visible = [];
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.querySelector('.cart-count');
+            const cartTotalElement = document.getElementById('cart-total');
+            
+            cartItems.innerHTML = '';
+            cartTotal = 0;
 
-        cards.forEach(card => {
-            const cat = card.dataset.category;
-            const name = card.dataset.name.toLowerCase();
-            const text = card.querySelector('p').textContent.toLowerCase();
+            cart.forEach((item, index) => {
+                cartTotal += item.price;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <div>
+                            <span>€${item.price.toFixed(2)}</span>
+                            <button class="cart-item-remove" onclick="removeItem(${index})">×</button>
+                        </div>
+                    </div>
+                `;
+            });
 
-            const catMatch = activeCategory === 'all' || cat === activeCategory;
-            const searchMatch = !search || name.includes(search) || text.includes(search);
+            cartCount.textContent = cart.length;
+            cartTotalElement.textContent = cartTotal.toFixed(2);
+        }
 
-            if (catMatch && searchMatch) {
-                card.classList.remove('hidden');
-                visible.push(card);
-            } else {
-                card.classList.add('hidden');
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function toggleCart() {
+            const cartModal = document.querySelector('.cart-modal');
+            cartModal.style.display = cartModal.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Je winkelwagen is leeg!');
+                return;
+            }
+            alert(`Bedankt voor je bestelling! Totaalbedrag: €${cartTotal.toFixed(2)}`);
+            cart = [];
+            updateCart();
+            toggleCart();
+        }
+
+        function addToCartToast(name, price) {
+            addToCart(name, price);
+            showToast('✅ ' + name + ' toegevoegd!');
+        }
+
+        // --- FILTERING ---
+        let activeCategory = 'all';
+
+        function setCategory(cat, btn) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterSandwiches();
+        }
+
+        function filterSandwiches() {
+            const search = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('.sandwich-card');
+
+            cards.forEach(card => {
+                const cat = card.dataset.category;
+                const name = card.dataset.name.toLowerCase();
+                const desc = card.querySelector('.description').textContent.toLowerCase();
+                
+                const catMatch = activeCategory === 'all' || cat === activeCategory;
+                const searchMatch = !search || name.includes(search) || desc.includes(search);
+
+                if (catMatch && searchMatch) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // --- MODAL LOGIC ---
+        const modalOverlay = document.getElementById('sandwich-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalCat = document.getElementById('modal-cat');
+        const modalIngr = document.getElementById('modal-ingr');
+        const modalAllergy = document.getElementById('modal-allergy');
+        const modalAddBtn = document.getElementById('modal-add-btn');
+
+        // Add click event to all cards
+        document.querySelectorAll('.sandwich-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Get data from dataset
+                const imgSrc = card.dataset.img;
+                const title = card.dataset.name;
+                const price = parseFloat(card.dataset.price).toFixed(2);
+                const desc = card.querySelector('.description').textContent;
+                const catText = card.dataset.catText;
+                const ingr = card.dataset.ingr;
+                const allergy = card.dataset.allergy;
+
+                // Populate Modal
+                modalImg.src = imgSrc;
+                modalTitle.textContent = title;
+                modalPrice.textContent = `€${price}`;
+                modalDesc.textContent = desc;
+                modalCat.textContent = catText;
+                modalIngr.textContent = `🥩 ${ingr}`;
+                modalAllergy.textContent = `⚠️ ${allergy}`;
+
+                // Set Add Button Action
+                modalAddBtn.onclick = () => {
+                    addToCartToast(title, parseFloat(price));
+                    closeModal();
+                };
+
+                // Show Modal
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal when clicking outside content
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
             }
         });
 
-        // Sort
-        visible.sort((a, b) => {
-            if (sort === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
-            if (sort === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
-            if (sort === 'popular') return parseInt(b.dataset.popularity) - parseInt(a.dataset.popularity);
-            if (sort === 'name-asc') return a.dataset.name.localeCompare(b.dataset.name);
-            if (sort === 'danger') return parseInt(b.dataset.danger) - parseInt(a.dataset.danger);
-            return 0;
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
         });
 
-        visible.forEach(card => grid.appendChild(card));
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
 
-        // Update count
-        document.getElementById('result-count').textContent = `${visible.length} sandwich${visible.length !== 1 ? 'es' : ''} gevonden`;
-
-        // Empty state
-        const empty = document.getElementById('empty-state');
-        empty.classList.toggle('show', visible.length === 0);
-    }
-
-    function randomSandwich() {
-        const cards = Array.from(document.querySelectorAll('.sandwich:not(.hidden)'));
-        if (!cards.length) return;
-        const random = cards[Math.floor(Math.random() * cards.length)];
-        random.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        random.style.transition = 'box-shadow 0.3s';
-        random.style.boxShadow = '0 0 0 3px var(--gold)';
-        setTimeout(() => { random.style.boxShadow = ''; }, 2000);
-        showToast('🎲 ' + random.querySelector('h2').textContent);
-    }
-
-    // Toast
-    function showToast(msg) {
-        const t = document.getElementById('toast');
-        t.textContent = msg;
-        t.classList.add('show');
-        setTimeout(() => t.classList.remove('show'), 2500);
-    }
-
-    function addToCartToast(name, price) {
-        if (typeof addToCart === 'function') addToCart(name, price);
-        showToast('✅ ' + name + ' toegevoegd!');
-    }
-</script>
-
+        // Init
+        window.onload = () => {
+            setLanguage('nl');
+        };
+    </script>
 </body>
 </html>

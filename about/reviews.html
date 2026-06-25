@@ -1,73 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews</title>
-    <link rel="stylesheet" href="../css/reviews.css">
+    <title>TURKWICH REVIEWS</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --turk-red: #E30A17;
+            --turk-white: #FFFFFF;
+            --tea-gold: #D4AF37; 
+            --bg-color: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-muted: #6c757d;
+            --card-bg: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER (MATCHING INDEX.HTML) --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--turk-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 16px;
+            background: var(--turk-red);
+            border-radius: 2px;
+            position: relative;
+        }
+        .flag-icon::after {
+            content: '☪';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            color: white;
+            font-size: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--turk-red);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 2px;
+            background: #eee;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 0.7rem;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--turk-red);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* --- HERO SECTION --- */
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px var(--turk-red);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* --- REVIEWS GRID --- */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--tea-gold);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: var(--turk-red);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .sandwich-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex: 1;
+            font-style: italic;
+        }
+
+        .review-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #eee;
+        }
+
+        .review-author {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            background: var(--tea-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #5a3e00;
+            font-weight: 800;
+        }
+
+        .deleted-review {
+            background: #f0f0f0;
+            color: #888;
+            font-family: monospace;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background: var(--turk-red);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 60px;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--tea-gold);
+            color: #5a3e00;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 5px solid var(--tea-gold);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; gap: 10px; }
+            .nav-right { width: 100%; justify-content: space-between; }
+            nav ul { display: none; } 
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="../about/bestellen.html">Bestellen</a>
-        <a href="../about/overons.html">Over ons</a>
-        <a href="../about/contact.html">Contact</a>
-        <a href="../about/reviews.html">Reviews</a>
-    </nav>
-    
-    <section id="reviews" class="reviews">
-        <h2>Wat onze klanten zeggen</h2>
-        <p>Hier kan je eigen reviews staan als je je review via de <a href="https://www.youtube.com/@KaasRijkeTurk/community">Posts</a> doorgeeft.</p>
- 
-        <div class="review">
-            <p>⭐️⭐️⭐️⭐️⭐️ - REDACTED: </p>
-            <p>"Lekker sappig, knollig en een nasmaak van bloed. 10/10 zal raden aan Canibalisten."</p>
-            <p>- Een Canibaal</p>
-        </div>
-        <div class="review">
-            <p>⭐️⭐️⭐️⭐️☆ - Extra Kaas Sandwich: </p>
-            <p>"Deze sandwiches... té veel buitenland, te weinig Nederland. Maar die met extra kaas? Die is prima. 🇳🇱🧀"</p>
-            <p>- Weert Gilders</p>
-        </div>
-    
-        <div class="review">
-            <p>⭐️⭐️⭐️⭐️⭐️ - Gezonde longen Sandwich: </p>
-            <p>"Mijn longen voelde nog nooit zo stomig!"</p>
-            <img src="../images/wc.jpg" class="review-image">
-            <p>- Pieter Rooks</p>
-        </div>
-    
-        <div class="review">
-            <p>⭐️⭐️⭐️⭐️⭐️ - Bananenketchup Pasta Cracker Rijst & Bonen Sandwich: </p>
-            <p>"Dit was de meest heerlijke sandwich die ik ooit heb gehad. De combinatie van de smaak factoren zorgden voor een smeuïge maar ook zachte textuur. Ik ben heel erg onder de indruk dat er zo een lekkere maar, ook gezonde sandwich mogelijk is om te maken. Ik zou het 100 sterren willen geven maar er zijn er maar 5!"</p>
-            <p>- Jelte Ongelijk</p>
-        </div>
-     
-    
-        <div class="review">
-            <p>⭐️⭐️⭐️⭐️⭐️ - Flying Sandwich: </p>
-            <p>"Het was een lekkere sandwich. Mijn duif vloog weg dat vond ik erg jammer, de smaken vulde mijn mond alsof er een feestje was, zo veel smaken. prachtig. de veren kwamen vaak in mijn keel en gaven een lekker gevoel. ik vind deze sandwich echt een aanrader."</p>
-            <p>- Lemra Netsrak</p>
-        </div>
-    
-        <div class="review">
-            <p>⭐️⭐️⭐️☆☆ - Werkeloosheid Sandwich: </p>
-            <p>"heerlijke sandwich het was het eerste dat ik in een week had gegeten  aleen de prijs was abnormaal hoog"</p>
-            <p>- De zwerver naast beekdal</p>
-        </div>
 
-        <div class="review">
-            <p>⭐️☆☆☆☆ - Moldy Sandwich: </p>
-            <p>"Het was niet levendig genoeg"</p>
-            <p>- Overlevende</p>
-        </div>
+    <header>
+        <div class="container header-inner">
+            <a href="../index.html" class="brand">
+                <span class="flag-icon"></span> TURKWICH REVIEWS
+            </a>
+            
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about/bestellen.html">Menu</a></li>
+                        <li><a href="../about/reviews.html" class="active">Reviews</a></li>
+                    </ul>
+                </nav>
 
-        <div class="review">
-            <p>⭐️⭐️⭐️⭐️☆ - Carrot Ginger Tea Sandwich: </p>
-            <p>DELETED (de persoon die deze comment had geschreven was een racist)</p>
-            <p>- een ginger</p>
+                <div class="lang-switch">
+                    <button class="lang-btn active">NL</button>
+                    <button class="lang-btn">EN</button>
+                    <button class="lang-btn">TR</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">KUNDEN<br>REVIEWS</h1>
+            <p class="page-subtitle">Waarom onze klanten nooit meer terugkomen.</p>
         </div>
     </section>
-    
+
+    <div class="container">
+        
+        <!-- CTA TO SUBMIT -->
+        <div class="cta-section">
+            <h2 class="cta-title">Heb jij een verhaal?</h2>
+            <p>Stuur je review via onze YouTube Community Posts en misschien plaatsen wij hem hier! (Waarschijnlijk niet)</p>
+            <a href="https://www.youtube.com/@KaasRijkeTurk/community" target="_blank" class="cta-btn">Ga naar YouTube</a>
+        </div>
+
+        <!-- REVIEWS GRID -->
+        <div class="reviews-grid">
+
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
+                <div class="sandwich-name">REDACTED</div>
+                <p class="review-text">"Lekker sappig, knollig en een nasmaak van bloed. 10/10 zal raden aan Canibalisten."</p>
+                <div class="review-author">
+                    <div class="author-avatar">C</div>
+                    Een Canibaal
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+                </div>
+                <div class="sandwich-name">Extra Kaas Sandwich</div>
+                <p class="review-text">"Deze sandwiches... té veel buitenland, te weinig Nederland. Maar die met extra kaas? Die is prima. 🇳🇱🧀"</p>
+                <div class="review-author">
+                    <div class="author-avatar">W</div>
+                    Weert Gilders
+                </div>
+            </div>
+
+     
+ <!-- Review 7 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️☆☆☆☆</div>
+                </div>
+                <div class="sandwich-name">Moldy Sandwich</div>
+                <p class="review-text">"Het was niet levendig genoeg"</p>
+                <div class="review-author">
+                    <div class="author-avatar">O</div>
+                    Overlevende
+                </div>
+            </div>
+            
+
+          
+
+            <!-- Review 6 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️☆☆</div>
+                </div>
+                <div class="sandwich-name">Werkeloosheid Sandwich</div>
+                <p class="review-text">"heerlijke sandwich het was het eerste dat ik in een week had gegeten aleen de prijs was abnormaal hoog"</p>
+                <div class="review-author">
+                    <div class="author-avatar">Z</div>
+                    De zwerver naast beekdal
+                </div>
+            </div>
+
+           
+
+            <!-- Review 8 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+                </div>
+                <div class="sandwich-name">Carrot Ginger Tea Sandwich</div>
+                <div class="deleted-review">DELETED (de persoon die deze comment had geschreven was een racist)</div>
+                <div class="review-author">
+                    <div class="author-avatar">G</div>
+                    een ginger
+                </div>
+            </div>
+
+            <!-- NEW REVIEW 9 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
+                <div class="sandwich-name">Volty Sandwich</div>
+                <p class="review-text">"Ik heb nu geen tong meer, maar ik kan wel weer praten. Elektrisch genot!"</p>
+                <div class="review-author">
+                    <div class="author-avatar">S</div>
+                    Shocked Customer
+                </div>
+            </div>
+
+            <!-- NEW REVIEW 10 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️☆☆☆☆</div>
+                </div>
+                <div class="sandwich-name">FeetWich</div>
+                <p class="review-text">"Ik vroeg om extra voet, maar kreeg alleen maar sokken. Bedrieglijk."</p>
+                <div class="review-author">
+                    <div class="author-avatar">V</div>
+                    Voetenliefhebber
+                </div>
+            </div>
+
+            <!-- NEW REVIEW 11 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
+                <div class="sandwich-name">Chummy Sloppy Joe</div>
+                <p class="review-text">"LeBron zelf kwam langs om deze op te halen. De smaak is legendarisch, net als zijn ringen."</p>
+                <div class="review-author">
+                    <div class="author-avatar">N</div>
+                    NBA Fan
+                </div>
+            </div>
+           
+
+
+             <!-- NEW REVIEW 12 -->
+             <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️☆</div>
+                </div>
+                <div class="sandwich-name">Lasagnich</div>
+                <p class="review-text">"Is het een sandwich? Is het een lasagne? Ik weet het niet meer. Mijn maag ook niet."</p>
+                <div class="review-author">
+                    <div class="author-avatar">I</div>
+                    Italian Confused
+                </div>
+            </div>
+             <!-- NEW REVIEW 13 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
+                <div class="sandwich-name">Selfie</div>
+                <img src="../images/5.jpg" alt="Selfie" class="review-image">
+                <p class="review-text">"Ik heb een selfie genomen met mijn sandwich omdat hij zo knap was. De augurk keek me aan. Ik ben verliefd geworden."</p>
+                <div class="review-author">
+                    <div class="author-avatar">A</div>
+                    Dayi Becer
+                </div>
+            </div>
+                   <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
+                <div class="sandwich-name">Gezonde longen Sandwich</div>
+                <img src="../images/wc.jpg" alt="WC" class="review-image">
+                <p class="review-text">"Mijn longen voelde nog nooit zo stomig!"</p>
+                <div class="review-author">
+                    <div class="author-avatar">P</div>
+                    Pieter Rooks
+                </div>
+            </div>
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
+                <div class="sandwich-name">Bananenketchup Pasta Cracker Rijst & Bonen</div>
+                <p class="review-text">"Dit was de meest heerlijke sandwich die ik ooit heb gehad. De combinatie van de smaak factoren zorgden voor een smeuïge maar ook zachte textuur. Ik ben heel erg onder de indruk dat er zo een lekkere maar, ook gezonde sandwich mogelijk is om te maken. Ik zou het 100 sterren willen geven maar er zijn er maar 5!"</p>
+                <div class="review-author">
+                    <div class="author-avatar">J</div>
+                    Jelte Ongelijk
+                </div>
+            </div>
+              <!-- Review 5 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+                </div>
+                <div class="sandwich-name">Flying Sandwich</div>
+                <p class="review-text">"Het was een lekkere sandwich. Mijn duif vloog weg dat vond ik erg jammer, de smaken vulde mijn mond alsof er een feestje was, zo veel smaken. prachtig. de veren kwamen vaak in mijn keel en gaven een lekker gevoel. ik vind deze sandwich echt een aanrader."</p>
+                <div class="review-author">
+                    <div class="author-avatar">L</div>
+                    Lemra Netsrak
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h2>TURKWICH</h2>
+            <p>Arnhem, Netherlands</p>
+            <div style="font-size: 0.8rem; color: #888; margin-top: 10px;">
+                <p>* Reviews zijn 100% verzonnen. Waarschijnlijk.</p>
+                <p>© 2024 KaasRijkeTurk. Hoşçakal, ölme!</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
